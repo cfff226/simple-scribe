@@ -38,6 +38,10 @@ def capitalised(user_input):
     user_input = user_input.capitalize()
     print(user_input)
 
+# This doesn't underline the whole string and this is something I'm looking into
+def underlined(user_input):
+    print("\u0332".join(user_input))
+
 
 def edit_text():
     if editing_choice == "1":
@@ -46,6 +50,8 @@ def edit_text():
         italicised(user_input)
     if editing_choice == "3":
         capitalised(user_input)
+    if editing_choice == "4":
+        underlined(user_input)
 
 
 edit_text()
