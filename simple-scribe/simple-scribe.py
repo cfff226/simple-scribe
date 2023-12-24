@@ -17,3 +17,5 @@ with open("output.txt", "r+") as f:
             + "\nHow would you like to edit your text? Choose a number"
             + "\n\n1. Bold\n2. Italicised\n3. Capitalised\n4. Underlined\n"
         )
+
+editing_choice = str(input("Please input the number of your choice"))
