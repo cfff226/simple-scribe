@@ -1,8 +1,8 @@
 # A program which will enable a user to input and edit text in a document
 # that they create
 
-
 user_input = str(input("Please enter your text here: "))
+
 
 # Use the with open method to access create and write to a text file using
 # a relative file path
@@ -18,4 +18,20 @@ with open("output.txt", "r+") as f:
             + "\n\n1. Bold\n2. Italicised\n3. Capitalised\n4. Underlined\n"
         )
 
-editing_choice = str(input("Please input the number of your choice"))
+editing_choice = input("Please input the number of your choice: ")
+
+
+# Function which applies bold to the user input
+def bold(user_input):
+    user_input = "\033[1m" + user_input + "\033[0m"
+    print(user_input)
+
+    return user_input
+
+
+def edit_text():
+    if editing_choice == "1":
+        bold(user_input)
+
+
+edit_text()
