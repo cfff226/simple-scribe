@@ -28,10 +28,17 @@ def bold(user_input):
 
     return user_input
 
+def italicised(user_input):
+    user_input = "\033[3m" + user_input + "\033[3m"
+    print(user_input)
+
 
 def edit_text():
     if editing_choice == "1":
         bold(user_input)
+    if editing_choice == "2":
+        italicised(user_input)
+
 
 
 edit_text()
