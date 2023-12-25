@@ -29,20 +29,25 @@ def bold(user_input):
     return user_input
 
 
+# Function which applies italicised to the user input
 def italicised(user_input):
     user_input = "\033[3m" + user_input + "\033[3m"
     print(user_input)
 
 
+# Function which applies capitalised to the user input
 def capitalised(user_input):
     user_input = user_input.capitalize()
     print(user_input)
 
-# This doesn't underline the whole string and this is something I'm looking into
+
+# Function which applies underlined to the user input
 def underlined(user_input):
-    print("\u0332".join(user_input))
+    user_input = "".join([i + "\u0332" for i in user_input])
+    print(user_input)
 
 
+# Function which calls another function depending on what text edit the user wants to apply
 def edit_text():
     if editing_choice == "1":
         bold(user_input)
