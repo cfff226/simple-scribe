@@ -1,7 +1,17 @@
 # A program which will enable a user to input and edit text in a document
 # that they create
 
-user_input = str(input("Please enter your text here: "))
+list_of_strings = []
+
+header = str(input("Please enter your text here: "))
+body = str(input("Please enter your text here: "))
+footer = str(input("Please enter your text here: "))
+user_input = header + body + footer
+list_of_strings.append(header)
+list_of_strings.append(body)
+list_of_strings.append(footer)
+print(list_of_strings)
+print(f"{header}                 \n\n{body}                 \n\n{footer}")
 
 
 # Use the with open method to access create and write to a text file using
