@@ -39,7 +39,6 @@ list_of_strings = []
 
 user_input = str(input("Please enter your text here: "))
 list_of_strings.append(user_input)
-print(user_input)
 
 
 # Use the with open method to access create and write to a text file using
@@ -100,11 +99,21 @@ def menu():
 style_list = []
 
 
+def edit_text(user_input):
+    print(user_input)
+    user_input = str(input("Please edit your text: "))
+    return user_input
+
+
 # Function which applies bold to the user input
 def format_text(user_input, style_list):
+    print(user_input)
     chosen_word = str(
-        input("Please type the text that you would like to apply styles to: ")
+        input(
+            "Please type the text that you would like to apply styles to or enter / to edit your text: "
+        )
     )
+
     menu()
     if chosen_word in user_input:
         styles = input("Please input the text style of your choice: ")
@@ -114,8 +123,10 @@ def format_text(user_input, style_list):
             styles = [UNDERSCORE]
         edited_string = "".join(styles) + chosen_word + ALL_OFF
         user_input = user_input.replace(chosen_word, edited_string)
-        print(user_input)
+    elif chosen_word == "/":
+        edit_text(user_input)
 
+    format_text(user_input, style_list)
 
 
 format_text(user_input, style_list)
