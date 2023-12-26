@@ -95,7 +95,7 @@ def menu():
     print("Type 'Underlined'")
     print("\nStandard text with no style? Type 'Clear'\n")
 
-
+# Function which enables the user to re write their text
 def edit_text(user_input):
     print(f"\n\n{user_input}\n\n")
     user_input = str(input("Please edit your text: "))
@@ -103,7 +103,7 @@ def edit_text(user_input):
     return user_input
 
 
-# Function which applies bold to the user input
+# Function which applies styles to the user input
 def format_text(user_input):
     print(f"\n\n{user_input}\n\n")
     chosen_word = str(
