@@ -142,6 +142,14 @@ def format_text(user_input, style_list):
             styles = [FG_CYAN]
         elif styles.lower() == "fg_white":
             styles = [FG_WHITE]
+        elif styles.lower() == "bg_white":
+            styles = [BG_WHITE]
+        else:
+            print(
+                "\n -------------- Your choice has not been recognised --------------\n"
+            )
+            format_text(user_input, style_list)
+
         edited_string = "".join(styles) + chosen_word + ALL_OFF
         user_input = user_input.replace(chosen_word, edited_string)
     elif chosen_word == "/":
