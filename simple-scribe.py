@@ -93,7 +93,10 @@ def menu():
     print(example)
     example = "Reverse your text?"[::-1]
     print(example)
-    print("\n\033[4mUnderline your text?\033[0m\n")
+    print("Type 'Reversed'")
+    print("\n\033[4mUnderline your text?\033[0m")
+    print("Type 'Underlined'")
+    print("\nStandard text with no style? Type 'Clear'\n")
 
 
 style_list = []
@@ -110,13 +113,12 @@ def format_text(user_input, style_list):
     print(user_input)
     chosen_word = str(
         input(
-            "Please type the text that you would like to apply styles to or enter / to edit your text: "
+            "Please type the text that you would like to apply styles to or enter / to edit your text: \n"
         )
     )
-
     menu()
     if chosen_word in user_input:
-        styles = input("Please input the text style of your choice: ")
+        styles = input("\nPlease input the text style of your choice: ")
         if styles.lower() == "bold":
             styles = [BOLD]
         elif styles.lower() == "underlined":
