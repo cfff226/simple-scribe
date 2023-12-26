@@ -1,5 +1,8 @@
 from __future__ import print_function
 
+# A program which will enable a user to input and edit text in a document
+# that they create
+
 # Special END separator
 END = "0e8ed89a-47ba-4cdb-938e-b8af8e084d5c"
 
@@ -32,13 +35,7 @@ BG_CYAN = "\033[46m"
 BG_WHITE = "\033[47m"
 
 
-# A program which will enable a user to input and edit text in a document
-# that they create
-
-list_of_strings = []
-
 user_input = str(input("Please enter your text here: "))
-list_of_strings.append(user_input)
 
 
 # Use the with open method to access create and write to a text file using
@@ -49,7 +46,7 @@ with open("output.txt", "w+") as f:
 
 def menu():
     print(
-        "\033[0;30;47m\
+        "\n\033[0;30;47m\
     Underlined black text on a white background - BG_WHITE        \033[0m"
     )
 
@@ -99,22 +96,19 @@ def menu():
     print("\nStandard text with no style? Type 'Clear'\n")
 
 
-style_list = []
-
-
 def edit_text(user_input):
-    print(user_input)
+    print(f"\n\n{user_input}\n\n")
     user_input = str(input("Please edit your text: "))
-    format_text(user_input, style_list)
+    format_text(user_input)
     return user_input
 
 
 # Function which applies bold to the user input
-def format_text(user_input, style_list):
-    print(user_input)
+def format_text(user_input):
+    print(f"\n\n{user_input}\n\n")
     chosen_word = str(
         input(
-            "Please type the text that you would like to apply styles to or enter / to edit your text: "
+            "Please type the text that you would like to apply styles, enter / to edit your text or enter - to exit: "
         )
     )
     menu()
@@ -162,16 +156,17 @@ def format_text(user_input, style_list):
             print(
                 "\n -------------- Your choice has not been recognised --------------\n"
             )
-            format_text(user_input, style_list)
+            format_text(user_input)
 
         edited_string = "".join(styles) + chosen_word + ALL_OFF
         user_input = user_input.replace(chosen_word, edited_string)
     elif chosen_word == "/":
         edit_text(user_input)
+    elif chosen_word == "-":
+        print(user_input)
+        quit()
 
-    format_text(user_input, style_list)
+    format_text(user_input)
 
 
-format_text(user_input, style_list)
-
-
+format_text(user_input)
