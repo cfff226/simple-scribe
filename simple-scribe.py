@@ -142,6 +142,20 @@ def format_text(user_input, style_list):
             styles = [FG_CYAN]
         elif styles.lower() == "fg_white":
             styles = [FG_WHITE]
+        elif styles.lower() == "bg_black":
+            styles = [BG_BLACK]
+        elif styles.lower() == "bg_red":
+            styles = [BG_RED]
+        elif styles.lower() == "bg_green":
+            styles = [BG_GREEN]
+        elif styles.lower() == "bg_yellow":
+            styles = [BG_YELLOW]
+        elif styles.lower() == "bg_blue":
+            styles = [BG_BLUE]
+        elif styles.lower() == "bg_magenta":
+            styles = [BG_MAGENTA]
+        elif styles.lower() == "bg_cyan":
+            styles = [BG_CYAN]
         elif styles.lower() == "bg_white":
             styles = [BG_WHITE]
         else:
@@ -161,12 +175,3 @@ def format_text(user_input, style_list):
 format_text(user_input, style_list)
 
 
-# Background colors
-BG_BLACK = "\033[40m"
-BG_RED = "\033[41m"
-BG_GREEN = "\033[42m"
-BG_YELLOW = "\033[43m"
-BG_BLUE = "\033[44m"
-BG_MAGENTA = "\033[45m"
-BG_CYAN = "\033[46m"
-BG_WHITE = "\033[47m"
