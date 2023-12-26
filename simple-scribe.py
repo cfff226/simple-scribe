@@ -5,7 +5,7 @@ while True:
     header = str(input("Please enter your header text here: "))
     body = str(input("Please enter your paragraph text here: "))
     footer = str(input("Please enter your footer text here: "))
-    document = header + "\n" + body + footer
+    document = header + body + footer
     print(header, body, footer)
     break
 
@@ -19,17 +19,15 @@ with open("output.txt", "r+") as f:
         print(
             "\nThis is your text: "
             + line + line
-            + "\nHow would you like to edit your text? Choose a number"
+            + "\nHow would you like to edit the main body of your text? Choose a number"
             + "\n\n1. Bold\n2. Italicised\n3. Capitalised\n4. Underlined\n"
         )
 
 editing_choice = input("Please input the number of your choice: ")
 
 
-
-
 # Function which applies bold to the user input
-def bold(body):
+def bold(body, footer):
     body = "\033[1m" + body + "\033[0m"
     print(body)
     body = "**" + "\033[1m" + body + "\033[0m" + "**"
@@ -38,21 +36,21 @@ def bold(body):
 
 
 # Function which applies italicised to the user input
-def italicised(body):
+def italicised(body, footer):
     body = "\033[3m" + body + "\033[3m"
     print(body)
     body = "*" + "\033[1m" + body + "\033[0m" + "*"
 
 
 # Function which applies capitalised to the user input
-def capitalised(body):
+def capitalised(body, footer):
     body = body.capitalize()
     print(body)
     body = f"{body} ## Capitalised"
 
 
 # Function which applies underlined to the user input
-def underlined(body):
+def underlined(body, footer):
     body = "".join([i + "\u0332" for i in body])
     print(body)
     body = f"{body} ## Underlined"
@@ -68,15 +66,15 @@ def default_header(header):
 
     # Function which calls another function depending on what text edit the user wants to apply
 
-def edit_text():
+def edit_body():
     if editing_choice == "1":
-        bold(body)
+        bold(body, footer)
     if editing_choice == "2":
-        italicised(body)
+        italicised(body, footer)
     if editing_choice == "3":
-        capitalised(body)
+        capitalised(body, footer)
     if editing_choice == "4":
-        underlined(body)
+        underlined(body, footer)
 
 
-edit_text()
+edit_body()
