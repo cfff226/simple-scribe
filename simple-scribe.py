@@ -32,7 +32,6 @@ BG_CYAN = "\033[46m"
 BG_WHITE = "\033[47m"
 
 
-
 # A program which will enable a user to input and edit text in a document
 # that they create
 
@@ -97,7 +96,9 @@ def menu():
     print(example)
     print("\n\033[4mUnderline your text?\033[0m\n")
 
+
 style_list = []
+
 
 # Function which applies bold to the user input
 def format_text(user_input, style_list):
@@ -106,13 +107,15 @@ def format_text(user_input, style_list):
     )
     menu()
     if chosen_word in user_input:
-        styles = str(input("Please input the background colour of your choice: "))
-        print(styles)
-        style_list.append(styles)
-        print(style_list)
+        styles = input("Please input the text style of your choice: ")
+        if styles.lower() == "bold":
+            styles = [BOLD]
+        elif styles.lower() == "underlined":
+            styles = [UNDERSCORE]
         edited_string = "".join(styles) + chosen_word + ALL_OFF
         user_input = user_input.replace(chosen_word, edited_string)
         print(user_input)
+
 
 
 format_text(user_input, style_list)
