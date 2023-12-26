@@ -61,21 +61,6 @@ with open("output.txt", "w+") as f:
     f.write(user_input + "\n")
 
 
-# Function which applies bold to the user input
-def format_text(user_input, list_of_strings):
-    chosen_word = str(
-        input("Please type the text that you would like to apply styles to: ")
-    )
-    if chosen_word in user_input:
-        styles = [BOLD, BG_GREEN, UNDERSCORE]
-        edited_string = "".join(styles) + chosen_word + ALL_OFF
-        user_input = user_input.replace(chosen_word, edited_string)
-        print(user_input)
-
-
-format_text(user_input, list_of_strings)
-
-
 
 def menu():
     print("\033[0;30;47m\
@@ -104,4 +89,31 @@ def menu():
     print(example)
     print("\n\033[4mUnderline your text?\033[0m\n")
 
-menu()
+
+
+
+
+
+
+
+
+
+
+
+# Function which applies bold to the user input
+def format_text(user_input):
+    chosen_word = str(
+        input("Please type the text that you would like to apply styles to: ")
+    )
+    menu()
+    if chosen_word in user_input:
+        styles = [BOLD, BG_GREEN, UNDERSCORE]
+        edited_string = "".join(styles) + chosen_word + ALL_OFF
+        user_input = user_input.replace(chosen_word, edited_string)
+        print(user_input)
+
+
+format_text(user_input)
+
+
+
