@@ -2,16 +2,16 @@
 # that they create
 
 while True:
-    heading = str(input("Please enter your text here: "))
-    body = str(input("Please enter your text here: "))
-    footer = str(input("Please enter your text here: "))
-    print(heading, body, footer)
+    header = str(input("Please enter your header text here: "))
+    body = str(input("Please enter your paragraph text here: "))
+    footer = str(input("Please enter your footer text here: "))
+    print(body, body, footer)
     break
 
 # Use the with open method to access create and write to a text file using
 # a relative file path
 with open("output.txt", "w+") as f:
-    f.write(heading + "\n")
+    f.write(body + "\n")
 
 with open("output.txt", "r+") as f:
     for line in f:
@@ -26,45 +26,54 @@ editing_choice = input("Please input the number of your choice: ")
 
 
 # Function which applies bold to the user input
-def bold(heading):
-    heading = "\033[1m" + heading + "\033[0m"
-    print(heading)
-    heading = "**" + "\033[1m" + heading + "\033[0m" + "**"
+def bold(body):
+    body = "\033[1m" + body + "\033[0m"
+    print(body)
+    body = "**" + "\033[1m" + body + "\033[0m" + "**"
 
-    return heading
+    return body
 
 
 # Function which applies italicised to the user input
-def italicised(heading):
-    heading = "\033[3m" + heading + "\033[3m"
-    print(heading)
-    heading = "*" + "\033[1m" + heading + "\033[0m" + "*"
+def italicised(body):
+    body = "\033[3m" + body + "\033[3m"
+    print(body)
+    body = "*" + "\033[1m" + body + "\033[0m" + "*"
 
 
 # Function which applies capitalised to the user input
-def capitalised(heading):
-    heading = heading.capitalize()
-    print(heading)
-    heading = f"{heading} ## Capitalised"
+def capitalised(body):
+    body = body.capitalize()
+    print(body)
+    body = f"{body} ## Capitalised"
 
 
 # Function which applies underlined to the user input
-def underlined(heading):
-    heading = "".join([i + "\u0332" for i in heading])
-    print(heading)
-    heading = f"{heading} ## Underlined"
+def underlined(body):
+    body = "".join([i + "\u0332" for i in body])
+    print(body)
+    body = f"{body} ## Underlined"
+
+# Function which applies a default style to the header
+def default_header(header):
+    default_header = default_header.upper()
+    default_header = "\033[1m" + default_header + "\033[0m"
+    print(default_header)
+    
+
+    return default_header
 
 
 # Function which calls another function depending on what text edit the user wants to apply
 def edit_text():
     if editing_choice == "1":
-        bold(heading, )
+        bold(body, )
     if editing_choice == "2":
-        italicised(heading)
+        italicised(body)
     if editing_choice == "3":
-        capitalised(heading)
+        capitalised(body)
     if editing_choice == "4":
-        underlined(heading)
+        underlined(body)
 
 
 edit_text()
