@@ -32,6 +32,7 @@ BG_CYAN = "\033[46m"
 BG_WHITE = "\033[47m"
 
 
+
 # A program which will enable a user to input and edit text in a document
 # that they create
 
@@ -48,50 +49,70 @@ with open("output.txt", "w+") as f:
     f.write(user_input + "\n")
 
 
-
 def menu():
-    print("\033[0;30;47m\
-    Underlined black text on a white background - BG_WHITE        \033[0m")
+    print(
+        "\033[0;30;47m\
+    Underlined black text on a white background - BG_WHITE        \033[0m"
+    )
 
-    print("\033[0;33;41m\
-    Yellow text on a red background - BG_RED                      \033[0m")
+    print(
+        "\033[0;33;41m\
+    Yellow text on a red background - BG_RED                      \033[0m"
+    )
 
-    print("\033[30m\033[43m\
-    Black text on a yellow background - BG_YELLOW                 \033[0m")
+    print(
+        "\033[30m\033[43m\
+    Black text on a yellow background - BG_YELLOW                 \033[0m"
+    )
 
-    print("\033[45m\
-    White text on a magenta background - BG_MAGENTA               \033[0m")
+    print(
+        "\033[45m\
+    White text on a magenta background - BG_MAGENTA               \033[0m"
+    )
 
-    print("\033[30;46m\
-    Black text on a cyan background - BG_CYAN                     \033[0m")
+    print(
+        "\033[30;46m\
+    Black text on a cyan background - BG_CYAN                     \033[0m"
+    )
 
-    print("\033[1;32;40m\
-    Bold green text on a black background - BG_BLACK              \033[0m")
+    print(
+        "\033[1;32;40m\
+    Bold green text on a black background - BG_BLACK              \033[0m"
+    )
 
-    print("\033[30m\n- FG_BLACK\033[0m""\033[31m\n- FG_RED\033[0m""\033[32m\n- FG_GREEN\033[0m""\033[33m\n- FG_YELLOW\033[0m""\033[34m\n- FG_BLUE\033[0m""\033[35m\n- FG_MAGENTA\033[0m""\033[36m\n- FG_CYAN\033[0m""\033[37m\n- FG_WHITE\033[0m\n")
+    print(
+        "\033[30m\n- FG_BLACK\033[0m"
+        "\033[31m\n- FG_RED\033[0m"
+        "\033[32m\n- FG_GREEN\033[0m"
+        "\033[33m\n- FG_YELLOW\033[0m"
+        "\033[34m\n- FG_BLUE\033[0m"
+        "\033[35m\n- FG_MAGENTA\033[0m"
+        "\033[36m\n- FG_CYAN\033[0m"
+        "\033[37m\n- FG_WHITE\033[0m\n"
+    )
 
     example = "Reverse your text?"
     print(example)
-    example = "Reverse your text?" [::-1]
+    example = "Reverse your text?"[::-1]
     print(example)
     print("\n\033[4mUnderline your text?\033[0m\n")
 
+style_list = []
 
 # Function which applies bold to the user input
-def format_text(user_input):
+def format_text(user_input, style_list):
     chosen_word = str(
         input("Please type the text that you would like to apply styles to: ")
     )
     menu()
     if chosen_word in user_input:
-
-        styles = [BOLD, BG_GREEN, UNDERSCORE]
+        styles = str(input("Please input the background colour of your choice: "))
+        print(styles)
+        style_list.append(styles)
+        print(style_list)
         edited_string = "".join(styles) + chosen_word + ALL_OFF
         user_input = user_input.replace(chosen_word, edited_string)
         print(user_input)
 
 
-format_text(user_input)
-
-
-
+format_text(user_input, style_list)
