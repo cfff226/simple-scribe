@@ -105,6 +105,7 @@ style_list = []
 def edit_text(user_input):
     print(user_input)
     user_input = str(input("Please edit your text: "))
+    format_text(user_input, style_list)
     return user_input
 
 
@@ -113,7 +114,7 @@ def format_text(user_input, style_list):
     print(user_input)
     chosen_word = str(
         input(
-            "Please type the text that you would like to apply styles to or enter / to edit your text: \n"
+            "Please type the text that you would like to apply styles to or enter / to edit your text: "
         )
     )
     menu()
@@ -123,6 +124,24 @@ def format_text(user_input, style_list):
             styles = [BOLD]
         elif styles.lower() == "underlined":
             styles = [UNDERSCORE]
+        elif styles.lower() == "clear":
+            styles = [ALL_OFF]
+        elif styles.lower() == "fg_black":
+            styles = [FG_BLACK]
+        elif styles.lower() == "fg_red":
+            styles = [FG_RED]
+        elif styles.lower() == "fg_green":
+            styles = [FG_GREEN]
+        elif styles.lower() == "fg_yellow":
+            styles = [FG_YELLOW]
+        elif styles.lower() == "fg_blue":
+            styles = [FG_BLUE]
+        elif styles.lower() == "fg_magenta":
+            styles = [FG_MAGENTA]
+        elif styles.lower() == "fg_cyan":
+            styles = [FG_CYAN]
+        elif styles.lower() == "fg_white":
+            styles = [FG_WHITE]
         edited_string = "".join(styles) + chosen_word + ALL_OFF
         user_input = user_input.replace(chosen_word, edited_string)
     elif chosen_word == "/":
@@ -132,3 +151,14 @@ def format_text(user_input, style_list):
 
 
 format_text(user_input, style_list)
+
+
+# Background colors
+BG_BLACK = "\033[40m"
+BG_RED = "\033[41m"
+BG_GREEN = "\033[42m"
+BG_YELLOW = "\033[43m"
+BG_BLUE = "\033[44m"
+BG_MAGENTA = "\033[45m"
+BG_CYAN = "\033[46m"
+BG_WHITE = "\033[47m"
